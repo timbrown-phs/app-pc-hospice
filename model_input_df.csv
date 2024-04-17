@@ -1,0 +1,84 @@
+var_feature,feature_order,score_max,question_type,model_input,question,question_option
+age_calc,0.0,110.0,value,0.6454545454545455,What is the patient's age?,value
+bmi_category_class.1.obesity_1,1.0,,parent,0.0,What is the patient's BMI Category?,Obesity Class 1 (Moderate 30 - 34.9)
+bmi_category_class.2.obesity_1,2.0,,parent,0.0,What is the patient's BMI Category?,Obesity Class 2 (Severe 35 - 39.9)
+bmi_category_class.3.obesity_1,3.0,,parent,0.0,What is the patient's BMI Category?,Obesity Class 3 (Morbid 40+)
+bmi_category_normal_1,4.0,,parent,1.0,What is the patient's BMI Category?,Normal (18.5 - 24.9)
+bmi_category_overweight_1,5.0,,parent,0.0,What is the patient's BMI Category?,Overweight (25 - 29.9)
+bmi_category_unknown_1,6.0,,parent,0.0,What is the patient's BMI Category?,Unknown
+distolic,7.0,180.0,value,0.39444444444444443,What is the patient's diastolic blood pressure,value
+high_risk_diag_1,8.0,,child,0.0,"Does patient's medical condition or diagnosis carry a significant risk of complications, severe outcomes, or adverse events?",Yes
+hospitalization_risk_score_11,9.0,,child,0.0,What is the patient's hospitalization risk score?,Eleven
+m1028_actv_diag_dm_1,10.0,,child,0.0,Does patient have an active diagnosis of comorbidities or co-existing conditions of diabetes mellitus?,Yes
+m1028_actv_diag_noa_1,11.0,,child,0.0,"Does patient have an active diagnosis of comorbidities or co-existing conditions that is NOT diabetes mellitus, peripheral vascular disease (PVD) or peripheral arterial disease (PAD)?",Yes
+m1028_actv_diag_pvd_pad_1,12.0,,child,0.0,Does patient have an active diagnosis of comorbidities or co-existing conditions of peripheral vascular disease (PVD) or peripheral arterial disease (PAD)?,Yes
+m1030_thh_par_nutrition_1,13.0,,child,0.0,Does patient receive parenteral nutrition (TPN or lipids) at home?,Yes
+m1033_hosp_risk_compliance_1,14.0,,parent,0.0,What is the patient's risk for hospitalization? (Check off all that apply),"Not complying with any medical instructions (for example medications, diet, exercise) in the past 3 months"
+m1033_hosp_risk_hstry_falls_1,15.0,,parent,0.0,What is the patient's risk for hospitalization? (Check off all that apply),History of falls (2 or more falls - or any fall with an injury -in the past 12 months)
+m1033_hosp_risk_mntl_bhv_dcln_1,16.0,,parent,0.0,What is the patient's risk for hospitalization? (Check off all that apply),"Recent decline in mental, emotional, orbehavioral status in the past 3 months"
+m1033_hosp_risk_none_above_1,17.0,,parent,0.0,What is the patient's risk for hospitalization? (Check off all that apply),None of the Above
+m1033_hosp_risk_othr_risk_1,18.0,,parent,0.0,What is the patient's risk for hospitalization? (Check off all that apply),Not Listed Here
+m1200_vision_2,19.0,,child,0.0,What is the patient's current vision status?,Severely Impaired. Cannot locate object without hearing or touching them or patient nonresponsive
+m1242_pain_freq_actvty_mvmt_0,20.0,,child,1.0,What is the patient's frequency of pain that interferes with activity or movement?,Has no pain
+m1242_pain_freq_actvty_mvmt_1,21.0,,child,0.0,What is the patient's frequency of pain that interferes with activity or movement?,Has pain that does not interfere with activity or movement
+m1242_pain_freq_actvty_mvmt_2,22.0,,child,0.0,What is the patient's frequency of pain that interferes with activity or movement?,Has pain but is less often than daily
+m1242_pain_freq_actvty_mvmt_3,23.0,,child,0.0,What is the patient's frequency of pain that interferes with activity or movement?,Has pain daily but not constantly
+m1242_pain_freq_actvty_mvmt_4,24.0,,child,0.0,What is the patient's frequency of pain that interferes with activity or movement?,Has pain all the time
+m1330_stas_ulcr_prsnt_2,25.0,,child,0.0,Does patient have a stasis ulcer?,Observable Only
+m1340_srgcl_wnd_prsnt_0,26.0,,child,1.0,Does patient have a surgical wound?,No
+m1340_srgcl_wnd_prsnt_1,27.0,,child,0.0,Does patient have a surgical wound?,Yes. At Least One Observable
+m1340_srgcl_wnd_prsnt_2,28.0,,child,0.0,Does patient have a surgical wound?,Yes. At Least One But Not Observable
+m1400_when_dyspneic_0,29.0,,child,1.0,Is patient dyspneic or noticeably short of breath?,No
+m1400_when_dyspneic_1,30.0,,child,0.0,Is patient dyspneic or noticeably short of breath?,Yes. When walking more than 20 feet or climbing stairs
+m1400_when_dyspneic_2,31.0,,child,0.0,Is patient dyspneic or noticeably short of breath?,"Yes. With moderate exertion (e.g., while dressing, using commode or bedpan, walking distances less than 20 feet)"
+m1600_uti_1,32.0,,child,0.0,Has patient been treated for a urinary tract infection in the past 14 days?,Yes
+m1610_ur_incont_0,33.0,,child,1.0,Does patient have urinary incontinence or urinary catheter presence?,No
+m1610_ur_incont_2,34.0,,child,0.0,Does patient have urinary incontinence or urinary catheter presence?,Yes. Urinary Catheter
+m1620_bwl_incont_1,35.0,,child,0.0,What is patient's frequency of bowel incontinence?,Less than once weekly
+m1700_cog_function_0,36.0,,child,1.0,What is the patient's current level of cognitive functioning?,"Alert/oriented, able to focus and shift attention, comprehends and recalls task directions independently"
+m1700_cog_function_2,37.0,,child,0.0,What is the patient's current level of cognitive functioning?,"Requires assistance and some direction in specific situations (e.g., on all tasks involving shifting of attention), or consistently requires low stimulus environment due to distractibility"
+m1700_cog_function_3,38.0,,child,0.0,What is the patient's current level of cognitive functioning?,Requires considerable assistance in routine situations. Is not alert and oriented or is unable to shift attention and recall directions more than half the time
+m1700_cog_function_4,39.0,,child,0.0,What is the patient's current level of cognitive functioning?,"Totally dependent due to disturbances such as constant disorientation, coma, persistent vegetative state, or delirium"
+m1710_when_confused_0,40.0,,child,1.0,"Has patient been confused, reported or observed, within the last 14 days?",Is not confused
+m1710_when_confused_2,41.0,,child,0.0,"Has patient been confused, reported or observed, within the last 14 days?",Confused (reported or observed within the last 14 days) on awakening or at night only
+m1710_when_confused_4,42.0,,child,0.0,"Has patient been confused, reported or observed, within the last 14 days?",Is confused constantly
+m1710_when_confused_5,43.0,,child,0.0,"Has patient been confused, reported or observed, within the last 14 days?",Is nonresponsive so cannot tell if confused
+m1720_when_anxious_0,44.0,,child,1.0,"Has patient been anxious, reported or observed, within the last 14 days?",Not anxious
+m1720_when_anxious_1,45.0,,child,0.0,"Has patient been anxious, reported or observed, within the last 14 days?",Is anxious less often than daily
+m1720_when_anxious_2,46.0,,child,0.0,"Has patient been anxious, reported or observed, within the last 14 days?","Anxious daily, but not constantly"
+m1720_when_anxious_3,47.0,,child,0.0,"Has patient been anxious, reported or observed, within the last 14 days?",Anxious all of the time
+m1730_phq2_dprsn_2,48.0,,child,0.0,"Is patient currently bothered by feeling down, depressed, or hopeless?",More Than Half (7-11) Of The Days
+m1730_phq2_dprsn_3,49.0,,child,0.0,"Is patient currently bothered by feeling down, depressed, or hopeless?",Nearly Every (12-14) Day
+m1730_phq2_lack_intrst_2,50.0,,child,0.0,Is patient currently bothered by little interest or pleasure in doing things?,More Than Half (7-11) Of The Days
+m1730_phq2_lack_intrst_3,51.0,,child,0.0,Is patient currently bothered by little interest or pleasure in doing things?,Nearly Every (12-14) Days
+m1740_bd_mem_deficit_1,52.0,,child,0.0,Has patient had a memory deficit demonstrated at least once a week?,Has memory deficit that has been demonstrated at least once a week
+m1745_beh_prob_freq_1,53.0,,child,0.0,What is patient's frequency of disruptive behavior symptoms?,Less than once a month
+m1745_beh_prob_freq_2,54.0,,child,0.0,What is patient's frequency of disruptive behavior symptoms?,Once a month
+m1745_beh_prob_freq_3,55.0,,child,0.0,What is patient's frequency of disruptive behavior symptoms?,Several times each month
+m1745_beh_prob_freq_4,56.0,,child,0.0,What is patient's frequency of disruptive behavior symptoms?,Several times a week
+m1745_beh_prob_freq_5,57.0,,child,0.0,What is patient's frequency of disruptive behavior symptoms?,Is at least daily
+m1840_crnt_toiltg_0,58.0,,child,1.0,What is patient's current ability to get to and from toilet or bed side commode safely and transfer on and off toilet/commode?,Able to get to and from the toilet and transfer independently with or without a device
+m1840_crnt_toiltg_1,59.0,,child,0.0,What is patient's current ability to get to and from toilet or bed side commode safely and transfer on and off toilet/commode?,Able to get to and from the toilet and transfer
+m1870_crnt_feeding_0,60.0,,child,1.0,What is the patient's current ability to feed self meals and snacks safely?,Independently feed self
+m1870_crnt_feeding_3,61.0,,child,0.0,What is the patient's current ability to feed self meals and snacks safely?,Able to take in nutrients orally and receives supplemental nutrients through a nasogastric tube or gastrostomy
+m1870_crnt_feeding_4,62.0,,child,0.0,What is the patient's current ability to feed self meals and snacks safely?,Unable to take in nutrients orally and is fed nutrients through a nasogastric tube or gastrostomy
+m1870_crnt_feeding_5,63.0,,child,0.0,What is the patient's current ability to feed self meals and snacks safely?,Unable to take in nutrients orally or by tube feeding
+m2001_drug_rgmn_rvw_1,64.0,,child,0.0,Has the patient's drug regimen review completed?,Review was completed with issues found during review
+m2030_crnt_mgmt_injctn_mdctn_0,65.0,,child,1.0,What is patient's current ability to prepare and take all prescribed injectable medications reliably and safely?,Able to independently take the correct oral medication(s) and proper dosage(s) at the correct times
+m2030_crnt_mgmt_injctn_mdctn_1,66.0,,child,0.0,What is patient's current ability to prepare and take all prescribed injectable medications reliably and safely?,Able to take injectable medication(s) at the correct times if: (a) individual dosages are prepared in advance by another person; OR (b) another person develops a drug diary or chart
+m2030_crnt_mgmt_injctn_mdctn_2,67.0,,child,0.0,What is patient's current ability to prepare and take all prescribed injectable medications reliably and safely?,Able to take medication(s) at the correct times if given reminders by another person at the appropriate times based on the frequency of the injection
+m2030_crnt_mgmt_injctn_mdctn_3,68.0,,child,0.0,What is patient's current ability to prepare and take all prescribed injectable medications reliably and safely?,Unable to take injectable medication unless administered by another person
+num_of_episodes,69.0,16.0,value,0.125,How many episodes of care did the patient receive for a particular type of medical treatment or care that spawned this home health visit?,value
+o2_sat,70.0,100.0,value,0.95,What is the patient's oxygen saturation?,value
+primary_diag_clinical_group_complex_1,71.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Complex Medical and Surgical
+primary_diag_clinical_group_mmta_after_1,72.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Surgical After Care
+primary_diag_clinical_group_mmta_endo_1,73.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Endocrine
+primary_diag_clinical_group_mmta_gi_gu_1,74.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Gastrointestinal or Genitourinary
+primary_diag_clinical_group_mmta_other_1,75.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Other
+primary_diag_clinical_group_mmta_resp_1,76.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Respiratory
+primary_diag_clinical_group_ms_rehab_1,77.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Musculoskeletal Rehabilitation
+primary_diag_clinical_group_nan_1,78.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Not Available
+primary_diag_clinical_group_neuro_rehab_1,79.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Neuro/Stroke Rehabilitation
+primary_diag_clinical_group_wound_1,80.0,,parent,0.0,What is the patient's active diagnoses? (Check all that apply),Wounds
+pulse,81.0,174.0,value,0.4425287356321839,What is the patient's pulse rate?,value
+systolic,82.0,250.0,value,0.5,What is the patient's systolic blood pressure?,value
