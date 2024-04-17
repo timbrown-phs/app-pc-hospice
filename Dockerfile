@@ -4,8 +4,8 @@ ENV auth_api_key=8dbd0a58e6369c541a2fc08ff973803e5c7c50555ff123bb767e7d9d7e7c227
 EXPOSE 8501
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-WORKDIR /main
+WORKDIR /pc-hospice
 COPY . ./
-ENTRYPOINT ["streamlit", "run", "main.py",  "--server.address=0.0.0.0", "--server.enableCORS=false"]
+ENTRYPOINT ["streamlit", "run", "pc-hospice.py",  "--server.address=0.0.0.0", "--server.enableCORS=false"]
 
 
