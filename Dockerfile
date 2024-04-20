@@ -6,4 +6,4 @@ ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 WORKDIR /app
 COPY . ./
-ENTRYPOINT ["streamlit", "run", "app.py",  "--server.address=0.0.0.0", "--server.enableCORS=false"]
+ENTRYPOINT ["streamlit", "run", "pc-hospice.py",  "--server.address=0.0.0.0", "--server.enableCORS=false"]
