@@ -5,6 +5,7 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 USER root
 COPY package*.json ./
+COPY proxy/proxy.mjs ./
 RUN npm install
 COPY --chown=node:node . .
 EXPOSE 8000
