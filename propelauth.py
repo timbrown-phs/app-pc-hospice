@@ -10,7 +10,6 @@ class Auth:
         access_token = get_access_token()
 
         if not access_token:
-            print("No Token")
             return None
 
         try:
