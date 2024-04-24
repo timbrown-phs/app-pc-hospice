@@ -7,7 +7,7 @@ await initializeAuthProxy({
     proxyPort: 8000,
     urlWhereYourProxyIsRunning: "http://localhost:8000",
     target: {
-        host: "localhost:8501,
+        host: "localhost:8501",
         protocol: 'https:'
     },
 })
