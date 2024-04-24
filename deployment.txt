@@ -1,0 +1,94 @@
+# One Time Setup in Google Cloud
+* In Console, Enable Billing for Org
+* In Console, Create Project app-app-pc-hospice In Project Selector
+* In Console, enable Compute Engine, Artifact Registry, and Google Kubernetes Engine API for project.
+
+# Project Info
+Name: app-app-pc-hospice
+ID:  app-pc-hospice
+Number: 690870055880
+
+# Open Cloud Shell and Set Project
+export PROJECT_ID=app-pc-hospice
+echo $PROJECT_ID
+gcloud config set project $PROJECT_ID
+
+# Create a repository in Google Cloud's Artifact Registry
+gcloud artifacts repositories create app-pc-hospice-repo \
+   --repository-format=docker \
+   --location=us-east1 \
+   --description="Docker repository"
+   
+# Set IAM (Identity and Access Management) policy bindings on a repository in Google Cloud Artifact Registry
+gcloud artifacts repositories add-iam-policy-binding app-pc-hospice-repo \
+    --location=us-east1 \
+    --member=serviceAccount:690870055880-compute@developer.gserviceaccount.com \
+    --role="roles/artifactregistry.reader"
+
+# Clone Source Code from Git - One Time
+git clone https://github.com/timbrown-phs/app-pc-hospice
+cd app-pc-hospice
+
+# Refresh artifacery repo - After Code Changes
+cd app-pc-hospice
+git fetch
+git pull origin main
+
+# Build a Docker image for Streamlit app
+docker build -t us-east1-docker.pkg.dev/${PROJECT_ID}/app-pc-hospice-repo/app-pc-hospice:v1 .
+docker images
+
+# Run a Docker container using an image that is stored in Google Cloud Artifact Registry.
+docker run --rm -p 8501:8501 us-east1-docker.pkg.dev/${PROJECT_ID}/app-pc-hospice-repo/app-pc-hospice:v1
+
+# Set up Cloud Run service
+# Configure Docker to Use gcloud as a Credential Helper
+gcloud auth configure-docker
+# Tag your image with the registry’s URL
+docker tag us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/app-pc-hospice:v1 gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/app-pc-hospice:v1
+# Push your Docker image to Google Container Registry:
+docker push gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/app-pc-hospice:v1
+
+# Deploy to Google Cloud Run
+
+#Setup config for google rung
+gcloud components update - it will provide command t actually use
+gcloud config set run/platform managed
+gcloud config set run/region us-east1
+
+#Deploy your image to Cloud Run by running:
+gcloud run deploy app-pc-hospice-service --image gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/app-pc-hospice:v1 --allow-unauthenticated
+* run will fail because default port for container is 8080 so manually go into cloud run and update service port to 8501
+
+## Deploy proxy-auth
+# Clone Source Code from Git - One Time
+git clone https://github.com/timbrown-phs/proxy-auth
+cd proxy-auth
+
+# Refresh artifacery repo - After Code Changes
+cd app-pc-hospice
+git fetch
+git pull origin main
+
+docker build -t us-east1-docker.pkg.dev/${PROJECT_ID}/app-pc-hospice-repo/proxy-auth:v1 .
+docker images
+
+# Run a Docker container using an image that is stored in Google Cloud Artifact Registry.
+docker run --rm -p 8000:8000 us-east1-docker.pkg.dev/${PROJECT_ID}/app-pc-hospice-repo/proxy-auth:v1
+
+## Set up Cloud Run service
+#Configure Docker to Use gcloud as a Credential Helper
+gcloud auth configure-docker
+# Tag your image with the registry’s URL
+docker tag us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/proxy-auth:v1 gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/proxy-auth:v1
+# Push your Docker image to Google Container Registry:
+docker push gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/proxy-auth:v1
+
+# Deploy to Google Cloud Run
+#Setup config for google rung
+gcloud components update 
+gcloud config set run/platform managed
+gcloud config set run/region us-east1
+#Deploy your image to Cloud Run by running:
+gcloud run deploy proxy-auth-service --image gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/proxy-auth:authv6 --allow-unauthenticated
+* deployment will fail because default port for container is 8080 so manually go into cloud run and update service port to 8501
