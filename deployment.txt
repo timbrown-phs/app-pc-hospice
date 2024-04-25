@@ -61,10 +61,6 @@ gcloud run deploy app-pc-hospice-service --image gcr.io/app-pc-hospice/us-east1-
 * run will fail because default port for container is 8080 so manually go into cloud run and update service port to 8501
 
 ## Deploy proxy-auth
-# Clone Source Code from Git - One Time
-git clone https://github.com/timbrown-phs/proxy-auth
-cd proxy-auth
-
 # Refresh artifacery repo - After Code Changes
 cd app-pc-hospice
 git fetch
@@ -90,5 +86,5 @@ gcloud components update
 gcloud config set run/platform managed
 gcloud config set run/region us-east1
 #Deploy your image to Cloud Run by running:
-gcloud run deploy proxy-auth-service --image gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/proxy-auth:authv6 --allow-unauthenticated
-* deployment will fail because default port for container is 8080 so manually go into cloud run and update service port to 8501
+gcloud run deploy proxy-auth-service --image gcr.io/app-pc-hospice/us-east1-docker.pkg.dev/app-pc-hospice/app-pc-hospice-repo/proxy-auth:v1 --allow-unauthenticated
+* deployment will fail because default port for container is 8080 so manually go into cloud run and update service port to 8000

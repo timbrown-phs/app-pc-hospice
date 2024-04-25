@@ -7,7 +7,6 @@ USER root
 COPY package*.json ./
 RUN npm install
 COPY --chown=node:node . .
-COPY --chown=node:node ./proxy/proxy.mjs ./
 EXPOSE 8000
 CMD [ "node", "proxy.mjs" ]
 
