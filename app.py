@@ -39,14 +39,12 @@ def main():
         st.error('Unauthorized')
         st.stop()
 
-    conn = create_connection()
+    # conn = create_connection()
 
     # Load UI Config file
     ui_df = pd.read_csv('ui~target_transfertohospice.csv')
 
     # Create Form Title Header
-    # st.title("PredictaCare Hospice")
-
     st.header('PredictaCare Hospice')
     st.header('A Hospice Care Decision Assistant for Home Health Providers')
     st.write('''Discover the power of predictive analytics with our decision assistant, 
@@ -141,7 +139,7 @@ def main():
 
     with st.sidebar:
 
-        images = ['PredictaCare.jpg', 'hospice.jpg']
+        images = ['filler.jpg','PredictaCare.jpg']
         st.image(images, use_column_width=False)
 
         st.link_button('Account/Logout', auth.get_account_url(), use_container_width=True)
@@ -149,7 +147,7 @@ def main():
         # Button to trigger the predictive model
         if st.button('Run Hospice Prediction', use_container_width=True):
 
-            insert_log_user_activity(conn, user.email, 'Predict')
+            # insert_log_user_activity(conn, user.email, 'Predict')
 
             form_df = pd.DataFrame(list(form_values.items()), columns=['form_field', 'form_value'])
             form_df['form_feature'] = form_df['form_field'] + '_' + form_df['form_value'].astype(int).astype(str)
@@ -298,17 +296,15 @@ def main():
             log_df.reset_index(drop=True, inplace=True)
             model_log_df = pd.concat([log_df, model_log_df], axis=1)
             # model_log_df.to_csv('model_log_df.csv', index=False)
-            model_log_df.to_sql('log_user_model', conn, if_exists='append', index=False)
-
-
+            # model_log_df.to_sql('log_user_model', conn, if_exists='append', index=False)
 
             # Display the prediction result
             if prediction == 1:
                 st.success(
-                    '❤️ High Probability of Hospice Care: ' + probability_pct_str + '❤️')
+                    '❤️ Patient has a HIGH probability for Hospice Care at ' + probability_pct_str + '❤️')
             else:
                 st.success(
-                    '💪 Low Probability of Hospice Care:  ' + probability_pct_str + '💪')
+                    '💪 Patient has a LOW probability for Hospice Care at ' + probability_pct_str + '💪')
 
 
 if __name__ == '__main__':
