@@ -1,6 +1,7 @@
 from propelauth_py import init_base_auth, UnauthorizedException
 from streamlit.web.server.websocket_headers import _get_websocket_headers
 
+
 class Auth:
     def __init__(self, auth_url, integration_api_key):
         self.auth = init_base_auth(auth_url, integration_api_key)

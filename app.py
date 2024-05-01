@@ -31,8 +31,32 @@ def insert_log_user_activity(conn, email, activity_type):
     except Error as e:
         print(e)
 
+def test_logging():
+
+    # Imports the Cloud Logging client library
+    import google.cloud.logging
+
+    # Instantiates a client
+    client = google.cloud.logging.Client()
+
+    # Retrieves a Cloud Logging handler based on the environment
+    # you're running in and integrates the handler with the
+    # Python logging module. By default this captures all logs
+    # at INFO level and higher
+    client.setup_logging()
+
+    # Imports Python standard library logging
+    import logging
+
+    # The data to log
+    text = "Hello, world!"
+
+    # Emits the data using the standard logging module
+    logging.warning(text)
 
 def main():
+    # test_logging()
+
     user = auth.get_user()
 
     if user == None:
